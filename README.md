@@ -1,5 +1,16 @@
 # FRONTEND Angular task
 
+
+open command prompt- cmd
+run below command in program files where google.exe is present
+Chrome  --disable-web-security --user-data-dir
+installation and setup
+npm install
+npm run build:all
+http-server -o
+
+
+
 ## Story 
 As a customer 
 I want to maintain a shopping list by adding and removing articles, 
