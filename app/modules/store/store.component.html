@@ -1,0 +1,39 @@
+<nav style="background-color:#5f5f5f" class="navbar navbar-inverse container-fluid" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="#">welcome to store</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-default btn-sm" ui-sref="app.dashboard">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Home
+                </button>
+            </div>
+        </li>
+    </ul>
+</nav>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <label ng-click="$ctrl.cartNameChange = true" ng-if="!$ctrl.cartNameChange">{{$ctrl.cartName}}</label>
+            <input ng-blur="$ctrl.cartNameChange = false;$ctrl.cartNameCg($ctrl.cartName)" ng-if="$ctrl.cartNameChange" ng-model="$ctrl.cartName" />
+        </div>
+        <div class="col-md-6">
+            <input type="text" ng-model="searchName" placeholder="Search By Name" />
+        </div>
+    </div>
+    <br>
+</div>
+<div class="container-fluid">
+    <div class="row">        
+            <div class="card" style="width:300px;padding:5px" ng-repeat="item in $ctrl.cartData | filter : {pName : searchName}">
+                <img class="card-img-top" ng-src="{{item.pImage}}" alt="Card image" style="width:40%">
+                <div class="card-body">
+                    <h4 class="card-title">{{item.pName}}</h4>
+                    <p class="card-text">{{item.pPrice}}</p>
+                    <button class="btn btn-success" ng-click="$ctrl.removeFromCart($index)">Remove</button>
+                </div>
+            </div>        
+    </div>
+</div>
